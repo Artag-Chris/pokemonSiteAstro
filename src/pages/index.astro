@@ -7,16 +7,17 @@ const data = (await resp.json()) as PokemonListResponse;
 //console.log("🚀 ~ data:", data);
 ---
 
-<MainLayout title="Pokemon static | Home" texto="Home Page" >
-<h1 class="text-3xl ">Listado de Pokemon</h1>
-<hr />
-<section
-  aria-label="Listado de Pokemons"
-  class="grid grid-cols-1 sm:grid-cols-4 md:grid-cols-5 gap-4"
->
-{data.results.map((pokemon) => <PokemonCard name={pokemon.name} url={pokemon.url} />)}
-
-</section>
-
-
+<MainLayout title="Pokemon static | Home" texto="Home Page">
+  <h1 class="text-3xl">Listado de Pokemon</h1>
+  <hr />
+  <section
+    aria-label="Listado de Pokemons"
+    class="grid grid-cols-1 sm:grid-cols-4 md:grid-cols-5 gap-4"
+  >
+    {
+      data.results.map((pokemon) => (
+        <PokemonCard name={pokemon.name} url={pokemon.url} />
+      ))
+    }
+  </section>
 </MainLayout>
